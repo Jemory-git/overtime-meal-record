@@ -180,13 +180,13 @@ const showMsg = {
       }
     })
   },
-  modal_confirmCb_cancleCb(content, title = '图片上传', cancelText = '跳过这张', confirmText = '重新上传') {
+  modal_confirmCb_cancleCb(options = {}) {
     return new Promise((resolve, reject) => {
       wx.showModal({
-        title,
-        content,
-        cancelText,
-        confirmText,
+        content: options.content,
+        title: options.title || '图片上传',
+        cancelText: options.cancelText || '跳过这张',
+        confirmText: options.confirmText || '重新上传',
         success(res) {
           if (res.confirm) {
             resolve();

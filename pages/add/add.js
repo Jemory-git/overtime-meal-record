@@ -206,9 +206,13 @@ Page({
         let len = selectedImgArr.length;
 
         if (current_i == len) {
-            // 如果是最后一张
+            // 如果已经传完最后一张
             wx.hideLoading();
             // 将图片地址处理成要发送的数据形式
+            if (this.data.postData.img_urls.length === 0) {
+                showMsg.none_1500('图片上传成功后才能提交');
+                return;
+            }
             this.data.postData.img_urls = this.data.postData.img_urls.join(',');
             // 继续提交流程，添加其他数据
             this.continue_submit();
@@ -233,8 +237,11 @@ Page({
         }).catch((data) => {
             wx.hideLoading();
             console.log(data);
-            
-            showMsg.modal_confirmCb_cancleCb(`第${next_i}张图片上传失败`).then(() => {
+            // 如果选择了一张以上图片，则可以跳过
+            showMsg.modal_confirmCb_cancleCb({
+                content: `第${next_i}张图片上传失败`,
+                cancelText: len > 1 ? null : '取消'
+            }).then(() => {
                 // 当前图片上传失败，点击重新上传
                 this.uploadImg(current_i);
             }).catch(() => {
