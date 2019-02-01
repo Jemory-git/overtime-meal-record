@@ -1,6 +1,5 @@
 
-const baseUrl = "https://192.168.0.175"
-// const baseUrl = "https://dev-miniapp.haotuoguan.cn"
+const baseUrl = "http://47.94.198.197/htgAPI/public/index.php"
 
 const formatTime = date => {
   const year = date.getFullYear()

@@ -32,7 +32,7 @@ Page({
 
     // 自定义方法
     getData(fn = function () {}) {
-        ajax.post('/v1/Foodcount/weiyibao_info', {
+        ajax.post('/weibao', {
             status: '未报'
         }).then((data) => {
             if (data.errcode == 1) {

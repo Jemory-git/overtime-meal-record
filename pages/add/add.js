@@ -27,6 +27,9 @@ Page({
                 value: '致威'
             },
             {
+                value: '黄蜂'
+            },
+            {
                 value: '上官'
             },
             {
@@ -138,13 +141,13 @@ Page({
         }
 
         // 必填项都填了，提交图片
-        // this.uploadImg(0);
-        this.readFile(0);
+        this.uploadImg(0);
         // this.continue_submit();
     },
     continue_submit() {
-        ajax.post('/addRecord', this.data.postData).then((res) => {
-            if (res.errcode == 1) {
+        // ajax.post('/addRecord', this.data.postData).then((res) => {
+        ajax.post('/v1/Foodcount/add_foodcount', this.data.postData).then((res) => {
+            if (res.errcode != 0) {
                 showMsg.modal_confirmCb_cancleCb('提交失败，是否重新提交', '提示', '否', '是').then(() => {
                     // 将图片地址处理成数组,然后重新提交
                     this.data.postData.img_urls = this.data.postData.img_urls.split(',');
@@ -218,14 +221,6 @@ Page({
             title: `正上传图片${len}-${next_i}`
         })
 
-        this.promise_readFile(selectedImgArr[current_i]).then((res) => {
-            let base64 = res.data;
-
-        }).catch((res) => {
-            console.log(res);
-
-        })
-
         this.promise_upload(selectedImgArr[current_i]).then((data) => {
             if (data.errcode == 1) {
                 showMsg.none_1500(data.errmsg);
@@ -238,7 +233,7 @@ Page({
         }).catch((data) => {
             wx.hideLoading();
             console.log(data);
-
+            
             showMsg.modal_confirmCb_cancleCb(`第${next_i}张图片上传失败`).then(() => {
                 // 当前图片上传失败，点击重新上传
                 this.uploadImg(current_i);
@@ -249,37 +244,25 @@ Page({
             })
         })
     },
+    promise_upload(src) {
+        return new Promise((resolve, reject) => {
+            wx.uploadFile({
+                url: baseUrl + '/v1/Foodcount/uploadPic',
+                filePath: src,
+                name: 'file',
+                success(res) {
+                    resolve(JSON.parse(res.data));
+                },
+                fail(res) {
+                    reject(JSON.parse(res.data));
+                }
+            })
+        })
+    },
     checkInputValue(v) {
         if (v === '' || v === undefined) {
             return true
         }
         return false
-    },
-    uploadImg(base64) {
-        return new Promise((resolve, reject) => {
-            ajax.post('/uploadImg', {
-                base64
-            }).then((data) => {
-                console.log(data);
-                resolve(data);
-            })
-
-        })
-    },
-    promise_readFile(src) {
-        return new Promise((resolve, reject) => {
-            wx.getFileSystemManager().readFile({
-                filePath: src,
-                encoding: 'base64',
-                success(res) {
-                    console.log(res);
-                    resolve(res)
-                },
-                fail(res) {
-                    console.log(res);
-                    reject(res)
-                }
-            })
-        })
     }
 })
