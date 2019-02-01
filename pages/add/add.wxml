@@ -1,0 +1,54 @@
+<view class="li">
+    <view class="item">
+        <picker mode="date" value="{{date}}" start="{{datestart}}" end="{{dateend}}" bindchange="bindDateChange">
+            <text class="key">日期：{{date}}</text>
+        </picker>
+    </view>
+    <view class="item">
+        <picker bindchange="bindsjPickerChange" value="{{shijianIndex}}" range="{{shijianArray}}">
+            <text class="key">时间：{{shijianArray[shijianIndex]}}</text>
+        </picker>
+    </view>
+    <view class="item">
+        <!-- <picker bindchange="bindslPickerChange" value="{{shuliangIndex}}" range="{{shuliangArray}}">
+            <text class="key">订单总额：{{shuliangArray[shuliangIndex]}}份</text>
+        </picker> -->
+        <text class="key">订单总额：</text>
+        <input type="digit" class="amount-input" value="{{money}}" placeholder="请输入"  placeholder-class="placeholder" bindblur="bindImputBlur"  bindinput="onmountinput" />
+    </view>
+    <view class="item">
+        <text class="key">加班人员：</text>
+        <checkbox-group class="checkboxgroup" bindchange="checkboxChange">
+            <label class="label" wx:for="{{items}}" wx:key="item">
+                <checkbox class="checkbox" value="{{item.value}}" checked="{{item.checked}}" />
+                <view  class="text">{{item.value}}</view>
+            </label>
+        </checkbox-group>
+    </view>
+    <view class="item relative">
+        <text class="key">订单图片：</text>
+        <image wx:for="{{selectedImgs}}" wx:key="{{item}}" class="img" mode="aspectFit" src="{{item}}"></image>
+        <view class="tianjiatupian">
+            <!-- <text class="text">添加图片</text> -->
+            <image mode="aspectFit" class="tianjia" src="../../assets/img/cp.png" catchtap="selectimg"></image>
+        </view>
+    </view>
+    <view class="item">
+        <text class="key">状态：</text>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{radioItems}}" wx:key="item">
+                <radio value="{{item.value}}" checked="{{item.checked}}" />
+                <text class="value">{{item.value}}</text>
+            </label>
+        </radio-group>
+    </view>
+    <view class="item">
+        <text class="key">备注：</text>
+        <textarea class="textarea" bindblur="bindTextAreaBlur" />
+    </view>
+    <view class="item">
+        <button type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="onsubmit">
+            提交
+        </button>
+    </view>
+</view>

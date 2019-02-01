@@ -1,0 +1,31 @@
+<view class="li">
+    <view class="item">
+        <text class="key">日期：</text>
+        <text class="value">{{itemdata.date_time}}</text>
+    </view>
+    <view class="item">
+        <text class="key">时间：</text>
+        <text class="value">{{itemdata.type}}</text>
+    </view>
+    <view class="item">
+        <text class="key">订单总额：</text>
+        <text class="value">{{itemdata.total}}元</text>
+    </view>
+    <view class="item">
+        <text class="key">加班人员：</text>
+        <text class="value">{{itemdata.names}}</text>
+    </view>
+    <view class="item relative">
+        <text class="key">订单图片：</text>
+        <image class="img" mode="aspectFit" wx:for="{{itemdata.imgArr}}" wx:key="{{item}}" src="{{item}}"></image>
+        <image wx:if="{{itemdata.status === '未报'}}" class="biaojianniu" mode="aspectFit" src="../../assets/img/abc.png" catchtap="onBiaojiYibao" data-id="{{itemdata.order_number}}"></image>
+    </view>
+    <view class="item">
+        <text class="key">单号：</text>
+        <text class="key">{{itemdata.order_number}}</text>
+    </view>
+    <view class="item">
+        <text class="key">备注：</text>
+        <text class="textarea">{{itemdata.describe}}</text>
+    </view>
+</view>

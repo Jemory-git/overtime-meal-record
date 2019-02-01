@@ -1,0 +1,7 @@
+<view class="weibaozonge">
+    <text class="key">已报总额：</text>
+    <text class="value">{{weibaoAccount}}</text>
+</view>
+<block wx:for="{{list}}" wx:key="{{item}}">
+    <item itemdata="{{item}}"></item>
+</block>

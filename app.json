@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/weibao/weibao",
+    "pages/add/add",
+    "pages/password/password",
+    "pages/yibao/yibao"
+  ],
+  "tabBar": {
+    "list": [{
+        "pagePath": "pages/weibao/weibao",
+        "text": "未报",
+        "iconPath": "assets/img/yuan.png",
+        "selectedIconPath": "assets/img/yuan2.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "添加记录",
+        "iconPath": "assets/img/jia.png",
+        "selectedIconPath": "assets/img/jia2.png"
+      },
+      {
+        "pagePath": "pages/yibao/yibao",
+        "text": "已报",
+        "iconPath": "assets/img/sj.png",
+        "selectedIconPath": "assets/img/sj2.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

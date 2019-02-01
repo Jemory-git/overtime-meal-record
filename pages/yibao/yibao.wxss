@@ -1,0 +1,6 @@
+page .weibaozonge {
+  padding: 20rpx;
+  font-size: 36rpx;
+  color: #582d75;
+  background-color: #7FCCF7;
+}

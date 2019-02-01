@@ -1,0 +1,36 @@
+.li {
+  height: auto;
+  padding: 20rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 0 50rpx 0rpx #7FCCF7;
+  color: #5e686e;
+}
+.li .item {
+  padding: 10rpx;
+}
+.li .item .key {
+  font-size: 30rpx;
+}
+.li .item .value {
+  font-size: 30rpx;
+}
+.li .item .img {
+  width: 100%;
+}
+.li .item .textarea {
+  font-size: 28rpx;
+  color: #919094;
+  width: 100%;
+  padding: 5rpx;
+}
+.li .relative {
+  position: relative;
+}
+.li .relative .biaojianniu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200rpx;
+  height: 100rpx;
+  transform: translateY(-200%);
+}

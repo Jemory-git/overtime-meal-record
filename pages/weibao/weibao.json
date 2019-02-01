@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "加班餐记录",
+    "usingComponents": {
+        "item": "/components/item/item"
+    },
+    "enablePullDownRefresh": true
+}

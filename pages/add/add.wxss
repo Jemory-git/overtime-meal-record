@@ -1,0 +1,67 @@
+page .li {
+  height: auto;
+  padding: 20rpx;
+  color: #3e3a46;
+}
+page .li .item {
+  padding: 10rpx;
+  border-bottom: dotted 1px #dbd2f0;
+}
+page .li .item .key {
+  font-size: 30rpx;
+}
+page .li .item .value {
+  font-size: 30rpx;
+}
+page .li .item .img {
+  width: 100%;
+}
+page .li .item .checkboxgroup {
+  display: flex;
+  justify-content: space-around;
+}
+page .li .item .checkboxgroup .label {
+  font-size: 30rpx;
+}
+page .li .item .checkboxgroup .label .checkbox {
+  padding-left: 5rpx;
+}
+page .li .item .radio-group {
+  display: flex;
+  padding-left: 50rpx;
+}
+page .li .item .radio-group .radio {
+  width: 200rpx;
+}
+page .li .item .tianjiatupian {
+  display: flex;
+  justify-content: center;
+}
+page .li .item .tianjiatupian .text {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+page .li .item .tianjiatupian .tianjia {
+  height: 100rpx;
+  width: 100rpx;
+}
+page .li .item .amount-input {
+  font-size: 28rpx;
+  color: #919094;
+}
+page .li .item .placeholder {
+  font-size: 26rpx;
+  letter-spacing: 2px;
+  color: #adaab3;
+}
+page .li .item .textarea {
+  font-size: 28rpx;
+  color: #919094;
+  height: 80rpx;
+  width: 100%;
+  padding: 5rpx;
+}
+page .li .item:last-child {
+  padding: 50rpx;
+  border-bottom: dotted 1px #fff;
+}
