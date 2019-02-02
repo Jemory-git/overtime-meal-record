@@ -1,5 +1,5 @@
 
-const baseUrl = "http://47.94.198.197/htgAPI/public/index.php"
+const baseUrl = "https://api.sglxc.cn/htgAPI/public/index.php"
 
 const formatTime = date => {
   const year = date.getFullYear()

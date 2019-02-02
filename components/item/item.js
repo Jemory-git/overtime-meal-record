@@ -24,7 +24,7 @@ Component({
     methods: {
         onBiaojiYibao(e) {
             console.log(wx.getStorageSync('password'));
-            
+
             if (wx.getStorageSync('password') !== '13400657400') {
                 // 密码不对
                 wx.navigateTo({
@@ -38,7 +38,13 @@ Component({
             let postData = {
                 order_number: id
             }
-            showMsg.modal_confirmCb_cancleCb('确定此单已经报销吗？', '提示', '取消', '确定').then(() => {
+            // showMsg.modal_confirmCb_cancleCb('确定此单已经报销吗？', '提示', '取消', '确定').then(() => {
+            showMsg.modal_confirmCb_cancleCb({
+                content: '确定此单已经报销吗？',
+                title: '提示',
+                cancelText: '取消',
+                confirmText: '确定',
+            }).then(() => {
                 ajax.post('/v1/Foodcount/change_status', postData).then((data) => {
                     if (data.errcode == 1) {
                         showMsg.none_1500(data.errmsg);
